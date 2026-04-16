@@ -87,6 +87,45 @@ python -m ipykernel install --user --name=intel_project --display-name "Python (
 Open the notebook file and select the correct kernel:
 Python (.venv Intel Project)
 
+### 6. Run the Streamlit app (optional)
+
+This project includes a Streamlit interface in `app.py` for single-image prediction.
+
+1. Save a trained model checkpoint from the notebook:
+
+```python
+import os
+import torch
+
+os.makedirs("models", exist_ok=True)
+
+# For ResNet18
+torch.save(
+  {
+    "model_state_dict": resnet_model.state_dict(),
+    "class_names": class_names,
+  },
+  "models/resnet18_scene.pth",
+)
+
+# For CNN
+torch.save(
+  {
+    "model_state_dict": cnn_model.state_dict(),
+    "class_names": class_names,
+  },
+  "models/cnn_scene.pth",
+)
+```
+
+2. Start the app:
+
+```bash
+streamlit run app.py
+```
+
+3. In the sidebar, choose `ResNet18` or `CNN` and set the checkpoint path if needed.
+
 
 Author
 Cynthia Urrutia
