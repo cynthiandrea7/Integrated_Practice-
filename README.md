@@ -87,7 +87,7 @@ python -m ipykernel install --user --name=intel_project --display-name "Python (
 Open the notebook file and select the correct kernel:
 Python (.venv Intel Project)
 
-### 6. Run the Streamlit app (optional)
+### 6. Run the Streamlit app 
 
 This project includes a Streamlit interface in `app.py` for single-image prediction.
 
